@@ -36,9 +36,24 @@ public class LinearEquationRunner {
     public static int[] coordinateToXY(String coord) {
         // Remove (), split by comma -> (x, y) -> x, y -> {x, y}
         String[] vals = coord.replace("(", "").replace(")", "").split(",");
-        // Remove whitespace, parse integer value
-        int[] xy = {Integer.parseInt(vals[0].strip()), Integer.parseInt(vals[1].strip())};
-        return xy;
+        // Remove whitespace, parse integer values
+        // If no int, set to 0
+        int xVal, yVal;
+
+        try {
+            xVal = Integer.parseInt(vals[0].strip());
+        } catch (Exception e) {
+            xVal = 0;
+        }
+
+        try {
+            yVal = Integer.parseInt(vals[1].strip());
+        } catch (Exception e) {
+            yVal = 0;
+        }
+
+        // Return values
+        return new int[]{xVal, yVal};
     }
 }
 
