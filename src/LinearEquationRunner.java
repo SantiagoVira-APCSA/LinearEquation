@@ -29,7 +29,7 @@ public class LinearEquationRunner {
     }
 
     public static void start() {
-        System.out.println("Welcome to the Linear Equation Runner Program!");
+        System.out.println("\nWelcome to the Linear Equation Runner Program!\n");
     }
 
     // Turn a string in form "(x, y)" to an integer array of the numbers x and y
@@ -41,3 +41,6 @@ public class LinearEquationRunner {
         return xy;
     }
 }
+
+// if no input for number, make it zero
+// simplify fractions
