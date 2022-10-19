@@ -35,7 +35,7 @@ public class LinearEquationRunner {
     // Turn a string in form "(x, y)" to an integer array of the numbers x and y
     public static int[] coordinateToXY(String coord) {
         // Remove (), split by comma -> (x, y) -> x, y -> {x, y}
-        String[] vals = coord.substring(1, coord.length() - 1).split(",");
+        String[] vals = coord.replace("(", "").replace(")", "").split(",");
         // Remove whitespace, parse integer value
         int[] xy = {Integer.parseInt(vals[0].strip()), Integer.parseInt(vals[1].strip())};
         return xy;

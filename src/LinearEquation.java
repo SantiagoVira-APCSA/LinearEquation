@@ -77,10 +77,16 @@ public class LinearEquation {
     }
 
     // Returns a coordinate pair in form (x, y) the intersects the same line that intersects
-    // the two pointsgiven x
+    // the two points given x
     public String coordinateForX(double xValue) {
-        double yValue = roundedToHundredth(slope() * xValue + yIntercept());
-        return "(" + truncateZero(roundedToHundredth(xValue)) + ", " + truncateZero(yValue) + ")";
+        double yValue = slope() * xValue + yIntercept();
+        return formatCoordinate(xValue, yValue);
+    }
+
+    // Returns a formatted coordinate pair in form (x, y) the intersects the same line that intersects
+    // the two points given x and y
+    public String formatCoordinate(double xValue, double yValue) {
+        return "(" + truncateZero(roundedToHundredth(xValue)) + ", " + truncateZero(roundedToHundredth(yValue)) + ")";
     }
 
     // Returns string with all information about the line that intersects the two points
@@ -88,7 +94,7 @@ public class LinearEquation {
         if (x1 == x2) {
             return "The two points share a vertical line";
         }
-        return "\nThe two points are: " + coordinateForX(x1) + " and " + coordinateForX(x2) +
+        return "\nThe two points are: " + formatCoordinate(x1, y1) + " and " + formatCoordinate(x2, y2) +
                 "\nThe equation of the line that intersects these points is " + equation() +
                 "\nThe slope of this line is " + truncateZero(slope()) +
                 "\nThe y-intercept of this line is " + truncateZero(yIntercept()) +
